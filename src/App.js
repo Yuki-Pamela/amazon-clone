@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./Header";
+import Checkout from "./Checkout";
 import Nav from "./Nav";
 import Home from "./Home";
 import Cart from "./Cart";
@@ -29,8 +30,10 @@ function App() {
     <Router>
       <div className="App">
         <Header cartItems={cartItems} />
-        <Nav />
         <Switch>
+          <Route path="/checkout">
+            <Checkout />
+          </Route>
           <Route path="/cart">
             <Cart cartItems={cartItems} />
           </Route>
@@ -38,6 +41,7 @@ function App() {
             <Help />
           </Route>
           <Route path="/">
+            <Nav />
             <Home />
           </Route>
         </Switch>
