@@ -3,7 +3,22 @@ import { db } from "./firebase";
 import "./Product.css";
 
 function Product(props) {
+  // const [{ basket }, dispatch] = useSatetValue();
+
   const addToCart = () => {
+    // dispatch the item into the data layer
+    
+    // dispatch ({
+    //   type: "ADD_TO_BASKET",
+    //   item: {
+    //     id: id,
+    //     title: title,
+    //     image: image,
+    //     price: price,
+    //     rating: rating,
+    //   }
+    // });
+
     const cartItem = db.collection("cart-items").doc(props.id);
     cartItem.get().then((doc) => {
       if (doc.exists) {
@@ -20,6 +35,7 @@ function Product(props) {
       }
     });
   };
+  
   return (
     <div className="Product">
       <div className="Product-info">
